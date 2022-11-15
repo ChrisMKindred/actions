@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Actions Test
- * Version:     0.0.1-rc.04
+ * Version:     0.0.1
  * Author:      Chris Kindred
  */
 
