@@ -1,0 +1,25 @@
+{
+    "name": "chrismkindred/actions",
+    "description": "Testing GitHub actions",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "psr-4": {
+            "Kindred\\Actions\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "Kindred\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "automattic/vipwpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "phpcompatibility/phpcompatibility-wp": "^2.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

@@ -1,0 +1,8 @@
+.git
+.wordpress-org
+.editorconfig
+.gitignore
+composer.json
+composer.lock
+phpcompat.xml
+phpcs.xml
