@@ -18,4 +18,18 @@ jobs:
           curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
           php wp-cli.phar --info
           php wp-cli.phar package install wp-cli/dist-archive-command
+          mkdir ${{ env.BUILD_FOLDER }}
+
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.BUILD_FOLDER }}
+          ref: ${{ github.ref }}
+
+      - name: Composer
+        working-directory: ${{ env.BUILD_FOLDER }}
+        run: |
+          composer install --no-dev
+          php ../wp-cli.phar dist-archive ${{ env.BUILD_FOLDER }}
+
 
