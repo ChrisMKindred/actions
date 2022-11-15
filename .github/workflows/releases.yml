@@ -2,7 +2,7 @@ name: 'Release'
 on:
   workflow_dispatch:
   release:
-    types: [prereleased]
+    types: [released]
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
 
       - name: Save to Release
         uses: xresloader/upload-to-github-release@v1
-        if: ${{ github.event.release.prerelease == 'false' }}
+        if: ${{ github.event.release.prerelease == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
