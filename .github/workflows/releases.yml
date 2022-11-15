@@ -10,6 +10,7 @@ jobs:
 
     env:
       BUILD_FOLDER: build
+      PLUGIN_SLUG: actions
 
     steps:
       - name: Install WP CLI
@@ -30,14 +31,13 @@ jobs:
         run: |
           composer install --no-dev
           cd ..
-          pwd
-          php wp-cli.phar dist-archive build
+          php wp-cli.phar dist-archive ${{ env.BUILD_FOLDER }} --plugin-dirname=${{ env.PLUGIN_SLUG }}
 
       - name: Save to Release
         uses: xresloader/upload-to-github-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: "action.zip"
+          file: "*.zip"
           tags: true
           prerelease: true
