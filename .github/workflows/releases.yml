@@ -32,7 +32,8 @@ jobs:
           composer install --no-dev
           cd ..
           php wp-cli.phar dist-archive ${{ env.BUILD_FOLDER }} --plugin-dirname=${{ env.PLUGIN_SLUG }}
-          echo "${{ github.event_name }}"
+          echo "${{ github.event.release }}"
+          echo "${{ github.event.release.prerelease }}"
 
       - name: Save to Release
         uses: xresloader/upload-to-github-release@v1
