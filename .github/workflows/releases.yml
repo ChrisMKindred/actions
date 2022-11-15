@@ -30,6 +30,6 @@ jobs:
         working-directory: ${{ env.BUILD_FOLDER }}
         run: |
           composer install --no-dev
-          php ../wp-cli.phar dist-archive ${{ env.BUILD_FOLDER }}
+          php ../wp-cli.phar dist-archive ${{ env.BUILD_FOLDER }}/
 
 
