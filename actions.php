@@ -17,5 +17,5 @@ if ( ! file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 
 add_action( 'plugins_loaded', static function () {
-	core()->init( __file__ );
+	( Core::instance() )->init( __file__ );
 } );
