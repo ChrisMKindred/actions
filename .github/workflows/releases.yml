@@ -33,4 +33,11 @@ jobs:
           pwd
           php wp-cli.phar dist-archive build
 
-
+      - name: Save to Release
+        uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: "action.zip"
+          tags: true
+          prerelease: true
