@@ -16,5 +16,6 @@ jobs:
         id: install-wp-cli
         run: |
           curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-          which wp
+          php wp-cli.phar --info
+          php wp-cli.phar package install wp-cli/dist-archive-command
 
