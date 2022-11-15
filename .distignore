@@ -1,7 +1,8 @@
-.git
-.wordpress-org
+.distignore
 .editorconfig
+.git
 .gitignore
+.wordpress-org
 composer.json
 composer.lock
 phpcompat.xml
