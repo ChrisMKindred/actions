@@ -1,6 +1,8 @@
 <?php
 /**
  * Plugin Name: Actions Test
+ * Version:     0.0.1-rc.04
+ * Author:      Chris Kindred
  */
 
 use Kindred\Actions\Core;
