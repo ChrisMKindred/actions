@@ -2,7 +2,7 @@ name: 'Release'
 on:
   workflow_dispatch:
   release:
-    types: [published]
+    types: [prereleased]
 
 jobs:
   build:
@@ -40,4 +40,3 @@ jobs:
         with:
           file: "*.zip"
           tags: true
-          prerelease: true
