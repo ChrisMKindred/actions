@@ -1,0 +1,20 @@
+name: 'Release'
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      BUILD_FOLDER: ./build
+
+    steps:
+      - name: Install WP CLI
+        id: install-wp-cli
+        run: |
+          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+          which wp
+
