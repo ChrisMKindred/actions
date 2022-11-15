@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      BUILD_FOLDER: ./build
+      BUILD_FOLDER: build
 
     steps:
       - name: Install WP CLI
@@ -18,7 +18,6 @@ jobs:
           curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
           php wp-cli.phar --info
           php wp-cli.phar package install wp-cli/dist-archive-command
-          mkdir ${{ env.BUILD_FOLDER }}
 
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -30,6 +29,8 @@ jobs:
         working-directory: ${{ env.BUILD_FOLDER }}
         run: |
           composer install --no-dev
-          php ../wp-cli.phar dist-archive ${{ env.BUILD_FOLDER }}/
+          cd ..
+          pwd
+          php wp-cli.phar dist-archive build
 
 
