@@ -13,12 +13,11 @@ jobs:
       PLUGIN_SLUG: actions
 
     steps:
-      - name: Install WP CLI
-        id: install-wp-cli
-        run: |
-          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-          php wp-cli.phar --info
-          php wp-cli.phar package install wp-cli/dist-archive-command
+      - name: Setup PHP with composer and extensions.
+        uses: shivammathur/setup-php@2.22.0
+        with:
+          tools: composer, wp
+          php-version: 8.0
 
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -26,14 +25,18 @@ jobs:
           path: ${{ env.BUILD_FOLDER }}
           ref: ${{ github.ref }}
 
-      - name: Composer
+      - name: Configure WP-CLI dist-archive-command
+        run: |
+          wp package install wp-cli/dist-archive-command
+
+      - name: Compile Plugin
         working-directory: ${{ env.BUILD_FOLDER }}
         run: |
           composer install --no-dev
-          cd ..
-          php wp-cli.phar dist-archive ${{ env.BUILD_FOLDER }} --plugin-dirname=${{ env.PLUGIN_SLUG }}
-          echo "${{ github.event.release }}"
-          echo "${{ github.event.release.prerelease }}"
+
+      - name: Build Plugin Zip
+        run: |
+          wp dist-archive ${{ env.BUILD_FOLDER }} --plugin-dirname=${{ env.PLUGIN_SLUG }}
 
       - name: Save to Release
         uses: xresloader/upload-to-github-release@v1
