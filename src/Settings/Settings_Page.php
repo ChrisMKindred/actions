@@ -1,7 +1,6 @@
 <?php
 namespace Kindred\Actions\Settings;
 
-
 class Settings_Page {
 	/**
 	 * Adds the action links in the plugin listing.

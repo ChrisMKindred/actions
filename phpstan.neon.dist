@@ -1,0 +1,26 @@
+# Configuration for PHPStan
+# https://phpstan.org/config-reference
+
+includes:
+	# @see https://github.com/phpstan/phpstan-src/blob/master/conf/bleedingEdge.neon
+	- phar://phpstan.phar/conf/bleedingEdge.neon
+	# Include this extension
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+	parallel:
+		jobSize: 10
+		maximumNumberOfProcesses: 32
+		minimumNumberOfJobsPerProcess: 2
+	level: max
+	inferPrivatePropertyTypeFromConstructor: true
+	reportUnmatchedIgnoredErrors: false
+	checkGenericClassInNonGenericObjectType: false
+	excludePaths:
+		analyse:
+			- 'vendor'
+			- 'tests'
+
+	# Paths to be analyzed.
+	paths:
+		- %currentWorkingDirectory%

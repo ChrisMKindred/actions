@@ -2,7 +2,6 @@ name: 'Release'
 on:
   workflow_dispatch:
   release:
-    types: [prereleased]
 
 jobs:
   build:
@@ -14,16 +13,15 @@ jobs:
 
     steps:
       - name: Setup PHP with composer and extensions.
-        uses: shivammathur/setup-php@2.22.0
+        uses: shivammathur/setup-php@2
         with:
           tools: composer, wp
           php-version: 8.0
 
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: ${{ env.BUILD_FOLDER }}
-          ref: ${{ github.ref }}
 
       - name: Configure WP-CLI dist-archive-command
         run: |
@@ -40,7 +38,6 @@ jobs:
 
       - name: Save to Release
         uses: xresloader/upload-to-github-release@v1
-        if: ${{ github.event.release.prerelease == true }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

@@ -1,0 +1,21 @@
+name: 'Workflows'
+
+on:
+  push:
+
+jobs:
+  coding-standards:
+    name: 'Coding Standards'
+    uses: ./.github/workflows/phpcs.yml
+  compatibility:
+    name: 'PHP Compatibility'
+    needs: [coding-standards]
+    uses: ./.github/workflows/compatibility.yml
+  phpstan:
+    name: 'Static Analysis'
+    needs: [coding-standards, compatibility]
+    uses: ./.github/workflows/static-analysis.yml
+  slic:
+    name: 'PHP Tests'
+    needs: [coding-standards, compatibility, phpstan]
+    uses: ./.github/workflows/php-tests.yml
