@@ -10,11 +10,11 @@
             "csp-xss": ["warn", { "minScore": 0 }],
             "bf-cache": ["warn", { "minScore": 0 }]
 
-        },
-        "collect": {
-            "settings": {
-              "chromeFlags": "--disable-gpu --no-sandbox --no-zygote"
-            }
+        }
+      },
+      "collect": {
+        "settings": {
+          "chromeFlags": "--disable-gpu --no-sandbox --no-zygote"
         }
       }
     }
