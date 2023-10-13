@@ -15,4 +15,4 @@ jobs:
           # budgetPath: ./budget.json # test performance budgets
           uploadArtifacts: true # save results as an action artifacts
           temporaryPublicStorage: false # upload lighthouse report to the temporary storage
-          configPath: ../dev/lighthouserc.json
+          configPath: .github/lighthouse/lighthouserc.json
