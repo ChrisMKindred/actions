@@ -39,4 +39,4 @@ jobs:
           composer-options: "--ignore-platform-reqs --optimize-autoloader"
 
       - name: Run PHP Compatibility
-        run: phpcs -s --standard=phpcompat.xml --runtime-set testVersion ${{ matrix.php-version }}
+        run: ./vendor/bin/phpcs -s --standard=phpcompat.xml --runtime-set testVersion ${{ matrix.php-version }}
