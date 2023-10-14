@@ -12,6 +12,6 @@ jobs:
           urls: |
             https://kindredwebconsulting.com
           # budgetPath: .github/lighthouse/budget.json
-          uploadArtifacts: false # save results as an action artifacts
+          uploadArtifacts: true # save results as an action artifacts
           temporaryPublicStorage: false # upload lighthouse report to the temporary storage
           configPath: .github/lighthouse/lighthouserc.json
