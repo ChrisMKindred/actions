@@ -4,18 +4,30 @@ on:
   push:
 
 jobs:
+  checkout:
+    name: Checkout
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
   coding-standards:
     name: 'Coding Standards'
-    uses: .github/workflows/phpcs.yml
+    uses: ./.github/workflows/phpcs.yml
+
   compatibility:
     name: 'PHP Compatibility'
     needs: [coding-standards]
-    uses: .github/workflows/compatibility.yml
+    uses: ./.github/workflows/compatibility.yml
+
   phpstan:
     name: 'Static Analysis'
     needs: [coding-standards, compatibility]
-    uses: .github/workflows/static-analysis.yml
+    uses: ./.github/workflows/static-analysis.yml
+
   slic:
     name: 'PHP Tests'
     needs: [coding-standards, compatibility, phpstan]
-    uses: .github/workflows/php-tests.yml
+    uses: ./.github/workflows/php-tests.yml
