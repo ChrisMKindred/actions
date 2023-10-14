@@ -29,9 +29,9 @@
             }
         },
         "collect": {
+            "numberOfRuns": 5,
             "settings": {
-                "chromeFlags": "--disable-gpu",
-                "numberOfRuns": 5
+                "chromeFlags": "--disable-gpu"
             }
         }
     }
