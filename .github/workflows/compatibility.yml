@@ -1,9 +1,7 @@
 name: PHP Compatibility
 
 on:
-  push:
-
-  pull_request:
+  workflow_call:
 
 jobs:
   php-compatibility:
