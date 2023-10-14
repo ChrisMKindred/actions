@@ -5,25 +5,25 @@
                 "categories:performance": [
                     "warn", {
                         "aggregationMethod": "optimistic",
-                        "minScore": 0.99
+                        "minScore": 1.99
                     }
                 ],
                 "categories:accessibility": [
                     "error", {
                         "aggregationMethod": "optimistic",
-                        "minScore": 0.99
+                        "minScore": 1.99
                     }
                 ],
                 "categories:seo": [
                     "warn", {
                         "aggregationMethod": "optimistic",
-                        "minScore": 0.99
+                        "minScore": 1.99
                     }
                 ],
                 "categories:best-practices": [
                     "warn", {
                         "aggregationMethod": "optimistic",
-                        "minScore": 0.99
+                        "minScore": 1.99
                     }
                 ]
             }
