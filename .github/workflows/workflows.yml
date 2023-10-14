@@ -30,4 +30,4 @@ jobs:
   slic:
     name: 'PHP Tests'
     needs: [coding-standards, compatibility, phpstan]
-    uses: ./.github/workflows/php-tests.yml
+    uses: ./.github/workflows/php-test.yml
