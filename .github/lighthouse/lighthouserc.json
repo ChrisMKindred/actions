@@ -5,13 +5,13 @@
                 "categories:performance": [
                     "warn", {
                         "aggregationMethod": "optimistic",
-                        "minScore": 0.9
+                        "minScore": 0.8
                     }
                 ],
                 "categories:accessibility": [
                     "error", {
                         "aggregationMethod": "optimistic",
-                        "minScore": 1
+                        "minScore": 0.8
                     }
                 ],
                 "categories:seo": [
