@@ -16,7 +16,8 @@
         "automattic/vipwpcs": "^2.3",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "phpcompatibility/phpcompatibility-wp": "^2.1",
-        "szepeviktor/phpstan-wordpress": "^1.1"
+        "szepeviktor/phpstan-wordpress": "^1.1",
+        "lucatume/wp-browser": "^4.0"
     },
     "config": {
         "allow-plugins": {

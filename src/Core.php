@@ -23,6 +23,6 @@ final class Core {
 	 */
 	public function init( string $file ): void {
 		$settings = new Settings_Page();
-		add_filter( 'plugin_action_links_' . plugin_basename( $file ), [ $settings, 'add_action_links' ] );
+		add_filter( 'plugin_action_links_' . plugin_basename( $file ), [ $settings, 'add_action_links' ] ); // phpcsignore undefined function
 	}
 }
