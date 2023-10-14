@@ -1,21 +1,38 @@
 {
     "ci": {
-      "assert": {
-        "assertions": {
-            "first-contentful-paint": ["error", { "minScore": 0.0 }],
-            "content-width": ["warn", { "minScore": 0 }],
-            "render-blocking-resources": ["warn", { "numericValue": 0 }],
-            "uses-rel-preconnect": ["warn", { "numericValue": 0 }],
-            "maskable-icon": ["warn", { "minScore": 0.9 }],
-            "csp-xss": ["warn", { "minScore": 0 }],
-            "bf-cache": ["warn", { "minScore": 0 }]
-
+        "assert": {
+            "assertions": {
+                "categories:performance": [
+                    "warn", {
+                        "aggregationMethod": "optimistic",
+                        "minScore": 0.9
+                    }
+                ],
+                "categories:accessibility": [
+                    "error", {
+                        "aggregationMethod": "optimistic",
+                        "minScore": 1
+                    }
+                ],
+                "categories:seo": [
+                    "warn", {
+                        "aggregationMethod": "optimistic",
+                        "minScore": 0.8
+                    }
+                ],
+                "categories:best-practices": [
+                    "warn", {
+                        "aggregationMethod": "optimistic",
+                        "minScore": 0.8
+                    }
+                ]
+            }
+        },
+        "collect": {
+            "settings": {
+                "chromeFlags": "--disable-gpu",
+                "numberOfRuns": 5
+            }
         }
-      },
-      "collect": {
-        "settings": {
-          "chromeFlags": "--disable-gpu --no-sandbox --no-zygote"
-        }
-      }
     }
-  }
+}
