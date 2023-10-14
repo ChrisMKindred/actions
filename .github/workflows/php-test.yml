@@ -15,13 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # ------------------------------------------------------------------------------
       # Checkout slic
       # ------------------------------------------------------------------------------
       - name: Checkout slic
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: stellarwp/slic
           ref: main
@@ -75,7 +75,7 @@ jobs:
           ${SLIC_BIN} info
           ${SLIC_BIN} config
 
-      - name: Set up Telemetry Starter for CI
+      - name: Set up Actions for CI
         run: |
           ${SLIC_BIN} use actions
           ${SLIC_BIN} composer install --ignore-platform-reqs
