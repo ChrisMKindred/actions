@@ -2,12 +2,7 @@
     "ci": {
         "assert": {
             "assertions": {
-                "categories:performance": [
-                    "warn", {
-                        "aggregationMethod": "optimistic",
-                        "minScore": 0.99
-                    }
-                ],
+                "categories:performance": ["warn",{"aggregationMethod":"optimistic","minScore": 0.99}],
                 "categories:accessibility": [
                     "error", {
                         "aggregationMethod": "optimistic",
